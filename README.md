@@ -1,5 +1,4 @@
+[![codecov](https://codecov.io/gh/Kowi77/akovalenko/branch/master/graph/badge.svg)](https://codecov.io/gh/Kowi77/akovalenko)
+
 # akovalenko
 http://job4j.ru/
-Целей обучения две:
-  - устроиться на работу Java-разработчиком (весна 2018)
-  - дотичь уровня middle (до конца 2018)
