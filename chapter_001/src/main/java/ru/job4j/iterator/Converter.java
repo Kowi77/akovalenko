@@ -7,35 +7,25 @@ public class Converter {
 
     public Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
 
-        if (it == null) {
-            return null;
-        }
-
         return new Iterator<Integer>() {
 
-            private Iterator<Integer> currentIterator  = it.next();
+            private Iterator<Integer> current = it.next();
 
             @Override
             public boolean hasNext() {
-                if (currentIterator == null) {
-                    return false;
-                }
 
-                if (currentIterator.hasNext()) {
+                if (current.hasNext()) {
                     return true;
+                } else {
+                    current = nextIterator(it);
                 }
-                currentIterator = nextIterator(it);
-
-                if (currentIterator != null && currentIterator.hasNext()) {
-                    return true;
-                }
-                return false;
+                return  (current.hasNext());
             }
 
             @Override
             public Integer next() {
                 if (hasNext()) {
-                    return currentIterator.next();
+                    return current.next();
                 }
                 throw new NoSuchElementException();
             }
@@ -43,14 +33,26 @@ public class Converter {
     }
 
     private Iterator<Integer> nextIterator(Iterator<Iterator<Integer>> iterator) {
-        Iterator<Integer> newIterator = null;
+
+        Iterator<Integer> it = new Iterator() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Object next() {
+                return null;
+            }
+        };
+
         while (iterator.hasNext()) {
-            newIterator = iterator.next();
-            if (newIterator.hasNext()) {
+            it = iterator.next();
+            if (it.hasNext()) {
                 break;
             }
         }
-        return newIterator;
+        return it;
     }
 
 
