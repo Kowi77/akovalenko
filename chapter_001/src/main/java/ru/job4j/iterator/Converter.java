@@ -5,17 +5,15 @@ import java.util.NoSuchElementException;
 
 public class Converter {
 
-    Iterator<Integer> currentIterator;
-
     public Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
 
         if (it == null) {
             return null;
         }
 
-        currentIterator  = it.next();
-
         return new Iterator<Integer>() {
+
+            private Iterator<Integer> currentIterator  = it.next();
 
             @Override
             public boolean hasNext() {
