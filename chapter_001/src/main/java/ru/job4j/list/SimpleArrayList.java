@@ -2,7 +2,7 @@ package ru.job4j.list;
 
 import java.util.*;
 
-public class SimpleArrayList<E> implements Iterable<E>{
+public class SimpleArrayList<E> implements Iterable<E> {
 
     Object[] container;
     int size = 0;
@@ -18,7 +18,7 @@ public class SimpleArrayList<E> implements Iterable<E>{
         if (container.length <= size) {
             growCapacity();
         }
-        this.container[size++]= value;
+        this.container[size++] = value;
         modCount++;
     }
 
@@ -39,13 +39,15 @@ public class SimpleArrayList<E> implements Iterable<E>{
 
             public E next() {
                 checkForComodification();
-                if (cursor >= size)
+                if (cursor >= size) {
                     throw new NoSuchElementException();
+                }
                 return (E) container[cursor++];
             }
             final void checkForComodification() {
-                if (modCount != expectedModCount)
+                if (modCount != expectedModCount) {
                     throw new ConcurrentModificationException();
+                }
             }
         };
     }
