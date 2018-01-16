@@ -57,6 +57,23 @@ public class SimpleLinkedList<E> implements Iterable<E> {
         return element;
     }
 
+    public E removeLast() {
+        if (last == null) {
+            return null;
+        }
+        final E element = last.item;
+        last = last.prev;
+        if (last == null) {
+            first = null;
+        } else {
+            last.next = null;
+        }
+        size--;
+        modCount++;
+        return element;
+    }
+
+
     public int size() {
         return size;
     }
