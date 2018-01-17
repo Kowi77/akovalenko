@@ -73,6 +73,14 @@ public class SimpleLinkedList<E> implements Iterable<E> {
         return element;
     }
 
+    public boolean contains(Object o) {
+        for (Node<E> x = first; x != null; x = x.next) {
+            if ((o == null && x.item == null) || o.equals(x.item)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int size() {
         return size;
