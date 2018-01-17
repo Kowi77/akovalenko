@@ -27,6 +27,19 @@ public class SimpleArrayList<E> implements Iterable<E> {
         return (E) this.container[position];
     }
 
+    public boolean contains(Object o) {
+        for (int i = 0; i < size; i++) {
+            if ((o == null && container[i] == null) || o.equals(container[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int size() {
+        return size;
+    }
+
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
