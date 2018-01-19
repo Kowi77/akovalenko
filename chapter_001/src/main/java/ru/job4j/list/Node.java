@@ -9,24 +9,14 @@ public class Node<T> {
         this.value = value;
     }
 
-    public Node<T> getNext() {
-        return next;
-    }
-
-    public void setNext(Node<T> next) {
-        this.next = next;
-    }
-
     public static boolean hasCycle(Node node) {
-        SimpleArrayList<Node> nodes = new SimpleArrayList<>();
-        Node currentNode = node;
-        while (currentNode != null && currentNode.next != null) {
-            nodes.add(currentNode);
-            currentNode = currentNode.next;
-            for (Node n : nodes) {
-                if (n.equals(currentNode)) {
-                    return true;
-                }
+        Node slow = node;
+        Node fast = node;
+        while (slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow.equals(fast)) {
+                return true;
             }
         }
         return false;
