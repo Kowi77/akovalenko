@@ -9,6 +9,10 @@ public class Node<T> {
         this.value = value;
     }
 
+    public void setNext(Node<T> next) {
+        this.next = next;
+    }
+
     public static boolean hasCycle(Node node) {
         Node slow = node;
         Node fast = node;

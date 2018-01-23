@@ -30,4 +30,9 @@ public abstract class Base {
     public int hashCode() {
         return getId().hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "id='" + id + '\'';
+    }
 }
