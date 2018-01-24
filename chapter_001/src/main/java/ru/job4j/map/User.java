@@ -50,4 +50,11 @@ public class User {
         return getBirthday() != null ? getBirthday().equals(user.getBirthday()) : user.getBirthday() == null;
     }
 
+    @Override
+    public int hashCode() {
+        int result = getName() != null ? getName().hashCode() : 0;
+        result = 31 * result + getChildren();
+        result = 31 * result + (getBirthday() != null ? getBirthday().hashCode() : 0);
+        return result;
+    }
 }

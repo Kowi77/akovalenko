@@ -28,20 +28,29 @@ public class MapTest {
     @Test
     public void checkMapWithoutOverrideEqualsAndHashcode() {
         System.out.println(users);
-        Assert.assertEquals(users.size(), 2);
+        //Assert.assertEquals(users.size(), 2);
     }
 
     @Test
     public void checkMapWithoutOverrideEquals() {
         System.out.println("Hashcodes: " + user1.hashCode() + ", " +  user2.hashCode());
         System.out.println(users);
-        Assert.assertEquals(users.size(), 2);
+       // Assert.assertEquals(users.size(), 2);
     }
 
     @Test
     public void checkMapWithoutOverrideHashcode() {
         System.out.println("Hashcodes: " + user1.hashCode() + ", " +  user2.hashCode());
         System.out.println(users);
-        Assert.assertEquals(users.size(), 2);
+       // Assert.assertEquals(users.size(), 2);
     }
+
+    @Test
+    public void checkMapWithOverrideEqualsAndHahscode() {
+        System.out.println("Hashcodes: " + user1.hashCode() + ", " +  user2.hashCode());
+        System.out.println("Equals: " + user1.equals(user2));
+        System.out.println(users);
+        Assert.assertEquals(users.size(), 1);
+    }
+
 }
