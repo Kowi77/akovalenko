@@ -37,4 +37,11 @@ public class MapTest {
         System.out.println(users);
         Assert.assertEquals(users.size(), 2);
     }
+
+    @Test
+    public void checkMapWithoutOverrideHashcode() {
+        System.out.println("Hashcodes: " + user1.hashCode() + ", " +  user2.hashCode());
+        System.out.println(users);
+        Assert.assertEquals(users.size(), 2);
+    }
 }
