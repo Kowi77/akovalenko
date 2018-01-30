@@ -5,13 +5,20 @@ public class SpacesCalculation {
     private static String text;
 
     static {
+        System.out.println("START OF PROGRAM!");
         text = " This this very long phrase has 12 words and    16 spaces ! ";
     }
 
     public static void main(String[] args) {
+
         System.out.println(text);
-        new Thread(new Space()).start();
-        new Thread(new Word()).start();
+        Thread thread1 = new Thread(new Space());
+        Thread thread2 = new Thread(new Word());
+        thread1.start();
+        thread2.start();
+        while (thread1.isAlive() || thread2.isAlive()){
+        }
+        System.out.println("FINISH OF PROGRAM!");
     }
 
     static class Space implements Runnable {
